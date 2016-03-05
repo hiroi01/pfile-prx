@@ -13,6 +13,7 @@
 #include "filebrowser.h"
 #include "button.h"
 #include "memory.h"
+#include "sceiomove.h"
 
 #include "log.h"
 
@@ -358,7 +359,7 @@ static int moveFile(const char *file1, const char *file2)
 {
 	int res;
 
-	res = sceIoRename(file1, file2);
+	res = sceIoMove(file1, file2);
 	if (res < 0) {
 		res = copyFile(file1, file2);
 		if (res == 0) {
@@ -374,10 +375,11 @@ static int moveFile(const char *file1, const char *file2)
 
 		waitButtonsRelease();
 		waitPressAnyButtons();
+	} else {
+		fb_data.cb.mode = -1;
 	}
 
 	return res;
-
 }
 
 static inline void drawSubMenu(int x, int y, char *item[], int pos)

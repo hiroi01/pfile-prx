@@ -12,6 +12,7 @@ OBJS =	\
 	file.o \
 	log.o \
 	exports.o \
+	sceiomove.o
 
 # syslibc
 OBJS += syslibc/qsort.o
