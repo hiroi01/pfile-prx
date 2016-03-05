@@ -1,0 +1,5 @@
+start_key = LTRIGGER + NOTE
+home_path = "ms0:/seplugins"
+swap_xo = false
+work_with_only = ""
+
